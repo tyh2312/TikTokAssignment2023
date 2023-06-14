@@ -26,20 +26,23 @@ kitex -module "github.com/TikTokTechImmersion/assignment_demo_2023/rpc-server" -
 cp -r ./kitex_gen ../http-server # copy kitex_gen to http-server
 ```
 
-3. Install Protobuf
+For HTTP Server (using Hertz):
+
+1. Install Protobuf
 ```bash
 install protobuf 
 ```
 
-5. Install the protoc-gen-go plugin for generation of idl code 
+4. Install the protoc-gen-go plugin for generation of idl code 
 ```bash
 go install github.com/golang/protobuf/protoc-gen-go@latest
 ```
 
-6. Generate the new API definitions
+5. Generate the new API definitions
 ```bash
 protoc --go_out=./http-server/proto_gen/api --go_opt=paths=source_relative ./idl_http.proto
 ```
+
 Setup Redis by installing the following:
 
 1. Install Redis Go client for rpc-server
