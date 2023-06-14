@@ -33,12 +33,12 @@ For HTTP Server (using Hertz):
 install protobuf 
 ```
 
-4. Install the protoc-gen-go plugin for generation of idl code 
+2. Install the protoc-gen-go plugin for generation of idl code 
 ```bash
 go install github.com/golang/protobuf/protoc-gen-go@latest
 ```
 
-5. Generate the new API definitions
+3. Generate the new API definitions
 ```bash
 protoc --go_out=./http-server/proto_gen/api --go_opt=paths=source_relative ./idl_http.proto
 ```
