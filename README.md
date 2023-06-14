@@ -19,11 +19,33 @@ make pre
 go install github.com/cloudwego/thriftgo
 go install github.com/cloudwego/kitex/tool/cmd/kitex@latest
 ```
- 2. Generate the code for http-server and rpc-server
+2. Generate the code for http-server and rpc-server
 ```bash
 cd ./rpc-server
 kitex -module "github.com/TikTokTechImmersion/assignment_demo_2023/rpc-server" -service imservice ../idl_rpc.thrift
 cp -r ./kitex_gen ../http-server # copy kitex_gen to http-server
+```
+
+3. Install Protobuf
+```bash
+install protobuf 
+```
+
+5. Install the protoc-gen-go plugin for generation of idl code 
+```bash
+go install github.com/golang/protobuf/protoc-gen-go@latest
+```
+
+6. Generate the new API definitions
+```bash
+protoc --go_out=./http-server/proto_gen/api --go_opt=paths=source_relative ./idl_http.proto
+```
+Setup Redis by installing the following:
+
+1. Install Redis Go client for rpc-server
+```bash
+cd ../rpc-server
+go get github.com/redis/go-redis/v9
 ```
 
 ## Run
